@@ -1,8 +1,16 @@
 import React from 'react'
 
-export default function Logo() {
+import Link from 'next/link'
+
+export default function Logo({
+  link = '/',
+  className = 'fixed z-10 m-auto inset-[calc(50%-45px)]'
+}: {
+  link?: string
+  className?: string
+}) {
   return (
-    <div className="fixed z-10 m-auto inset-[calc(50%-45px)]">
+    <Link href={link} className={className}>
       <svg
         width="90"
         height="90"
@@ -77,6 +85,6 @@ export default function Logo() {
           strokeLinecap="round"
         />
       </svg>
-    </div>
+    </Link>
   )
 }

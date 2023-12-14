@@ -37,7 +37,6 @@ export default function RootLayout({
         <main className="min-h-screen flex flex-col items-center bg-background-earthy-grape antialiased">
           {children}
         </main>
-        <Logo />
       </body>
     </html>
   )
