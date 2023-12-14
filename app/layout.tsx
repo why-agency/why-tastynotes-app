@@ -22,17 +22,20 @@ const defaultUrl = process.env.VERCEL_URL
 
 export const metadata = {
   metadataBase: new URL(defaultUrl),
-  title: 'Next.js and Supabase Starter Kit',
-  description: 'The fastest way to build apps with Next.js and Supabase',
+  title: 'A tasting room for your wine notes',
+  description: 'Create tasting notes collaboratively with your friends'
 }
 
 export default function RootLayout({
-  children,
+  children
 }: {
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={`${primaryFont.variable} ${secondaryFont.variable}`}>
+    <html
+      lang="en"
+      className={`${primaryFont.variable} ${secondaryFont.variable}`}
+    >
       <body>
         <main className="min-h-screen flex flex-col items-center bg-background-earthy-grape antialiased">
           {children}
