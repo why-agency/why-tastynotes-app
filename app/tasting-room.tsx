@@ -42,7 +42,7 @@ export default function TastingRoom({
           setIsConfettiActive(true)
           setTimeout(() => {
             setIsConfettiActive(false)
-          }, 1000)
+          }, 15000)
           return setTastingNotes(
             tastingNotes.concat(payload.new as TastingNote)
           )
@@ -111,7 +111,7 @@ export default function TastingRoom({
                     Tasted by {tastingNote.created_by}
                   </p>
                 </div>
-                <p className="text-sm text-[15px] opacity-80 line-clamp-2">
+                <p className="text-sm text-[15px] opacity-80 line-clamp-2 2xl:line-clamp-4">
                   {tastingNote.note}
                 </p>
               </div>
