@@ -85,8 +85,8 @@ export default function TastingRoom({
     <>
       {isConfettiActive && (
         <Canvas
-          style={{ position: 'absolute' }}
-          className="absolute inset-0 w-full h-full pointer-events-none z-10 bg-transparent"
+          style={{ position: 'fixed' }}
+          className="fixed inset-0 w-full h-full pointer-events-none z-10 bg-transparent"
         >
           {/* @ts-ignore */}
           <Confetti isExploding position={[0, 0, 3]} />
