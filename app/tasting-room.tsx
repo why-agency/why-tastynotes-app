@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react'
 
 import { createClient } from '@/utils/supabase/client'
+import Link from 'next/link'
 
 interface TastingNote {
   id: number
@@ -61,7 +62,15 @@ export default function TastingRoom({
     return colors[randomColor].split(' ')
   }
 
-  if (!tastingNotes) return
+  if (!tastingNotes || !tastingNotes.length)
+    return (
+      <div className="absolute w-52 flex flex-col inset-x-[calc(50%-80px)] top-[calc(50%+64px)] text-background-sunny-rose">
+        <h1 className="text-[32px] font-secondary font-light">No notes yet!</h1>
+        <Link href="/create-note" className="hover:underline">
+          Be the first to add a note.
+        </Link>
+      </div>
+    )
 
   return (
     <ul className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 w-full">

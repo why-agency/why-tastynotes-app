@@ -26,7 +26,14 @@ export default function Chat() {
         link="/"
         className="fixed z-10 top-0 inset-x-[calc(50%-45px)] scale-50"
       />
-      <div className="flex flex-col w-full max-w-md py-24 mx-auto stretch">
+      <div className="flex flex-col w-full max-w-md py-24 px-6 mx-auto stretch">
+        <div className={`whitespace-pre-wrap ${roleToColorMap['assistant']}`}>
+          <strong className="capitalize">{`Assistant: `}</strong>
+          Welcome and cheers! Start by describing the color of your wine. For
+          example "My wine is a bright, ruby red."
+          <br />
+          <br />
+        </div>
         {messages.map((m: Message) => (
           <div
             key={m.id}
@@ -34,7 +41,7 @@ export default function Chat() {
           >
             <strong className="capitalize">{`${m.role}: `}</strong>
             {m.role !== 'data' && m.content}
-            {/* {m.role === 'data' && JSON.stringify(m.content)} */}
+            {m.role === 'data' && JSON.stringify(m)}
             <br />
             <br />
           </div>
@@ -49,7 +56,7 @@ export default function Chat() {
         <form onSubmit={submitMessage}>
           <input
             disabled={status !== 'awaiting_message'}
-            className="fixed bottom-0 w-full max-w-md p-2 mb-8 bg-background-sunny-rose rounded shadow-xl placeholder:text-foreground-dark/75"
+            className="fixed bottom-0 w-[calc(100%-48px)] max-w-md p-2 mb-8 bg-background-sunny-rose rounded shadow-xl placeholder:text-foreground-dark/75"
             value={input}
             placeholder="What's the color of your wine?"
             onChange={handleInputChange}
