@@ -26,25 +26,21 @@ export default function Chat() {
         link="/"
         className="fixed z-10 top-0 inset-x-[calc(50%-45px)] scale-50"
       />
-      <div className="flex flex-col w-full max-w-md py-24 px-6 mx-auto stretch">
-        <div className={`whitespace-pre-wrap ${roleToColorMap['assistant']}`}>
+      <ul className="flex flex-col w-full max-w-md py-24 px-6 mx-auto stretch space-y-4">
+        <li className={`whitespace-pre-wrap ${roleToColorMap['assistant']}`}>
           <strong className="capitalize">{`Assistant: `}</strong>
           Welcome and cheers! Start by describing the color of your wine. For
           example "My wine is a bright, ruby red."
-          <br />
-          <br />
-        </div>
+        </li>
         {messages.map((m: Message) => (
-          <div
+          <li
             key={m.id}
             className={`whitespace-pre-wrap ${roleToColorMap[m.role]}`}
           >
             <strong className="capitalize">{`${m.role}: `}</strong>
             {m.role !== 'data' && m.content}
             {m.role === 'data' && JSON.stringify(m)}
-            <br />
-            <br />
-          </div>
+          </li>
         ))}
 
         {status === 'in_progress' && (
@@ -62,7 +58,7 @@ export default function Chat() {
             onChange={handleInputChange}
           />
         </form>
-      </div>
+      </ul>
     </>
   )
 }
