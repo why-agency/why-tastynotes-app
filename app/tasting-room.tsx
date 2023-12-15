@@ -49,13 +49,13 @@ export default function TastingRoom({
   const getCardColors = (index: number) => {
     const colors = [
       'bg-background-dark-soil bg-background-light-rose text-foreground-light',
-      'bg-background-dark-soil bg-background-earthy-green text-foreground-light',
       'bg-background-earthy-grape bg-background-sunny-rose text-foreground-dark',
-      'bg-background-earthy-grape bg-background-light-rose text-foreground-light',
       'bg-background-earthy-green bg-background-vibrant-pink text-foreground-light',
       'bg-background-light-rose bg-background-earthy-grape text-foreground-light',
-      'bg-background-earthy-green bg-background-dark-soil text-foreground-light',
       'bg-background-earthy-grape bg-background-sunny-rose text-foreground-light',
+      'bg-background-earthy-green bg-background-dark-soil text-foreground-light',
+      'bg-background-dark-soil bg-background-earthy-green text-foreground-light',
+      'bg-background-earthy-grape bg-background-light-rose text-foreground-light',
       'bg-background-vibrant-pink bg-background-earthy-green text-foreground-light'
     ]
 
@@ -75,7 +75,7 @@ export default function TastingRoom({
   return (
     <ul className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 w-full">
       {tastingNotes.map((tastingNote, index) => {
-        const [foreground, background, text] = getCardColors(index)
+        const [background, foreground, text] = getCardColors(index)
         return (
           <li
             key={tastingNote.id}
